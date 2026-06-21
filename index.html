@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ヤニログ｜喫煙記録と禁煙サポート。タバコ代を見える化するアプリ</title>
+<meta name="description" content="吸った本数とタバコ代を記録して、推移・節約・禁煙・減煙までをひとつに。アカウント不要、データは端末の中だけ。2日間無料、あとは買い切り（月額なし）の喫煙記録アプリ。iPhone／Android対応。">
+<meta name="keywords" content="禁煙アプリ,喫煙記録,タバコ代,節約,禁煙サポート,減煙,節煙,買い切りアプリ,たばこ,禁煙 記録,喫煙 管理">
+<meta name="author" content="ヤニログ">
+<meta name="application-name" content="ヤニログ">
+<meta name="apple-mobile-web-app-title" content="ヤニログ">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="googlebot" content="index,follow">
+<meta name="theme-color" content="#0b0a09">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://mexastarted.github.io/yanilog/">
+<link rel="alternate" hreflang="ja" href="https://mexastarted.github.io/yanilog/">
+<link rel="alternate" hreflang="x-default" href="https://mexastarted.github.io/yanilog/">
+<link rel="icon" type="image/png" href="https://mexastarted.github.io/yanilog/icon.png">
+<link rel="apple-touch-icon" href="https://mexastarted.github.io/yanilog/icon.png">
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="ヤニログ">
+<meta property="og:title" content="ヤニログ｜煙に変えたお金を、見える化する">
+<meta property="og:description" content="喫煙記録・推移・節約、そして禁煙／減煙のサポートまでをひとつに。アカウント不要・端末内保存・買い切り（月額なし）。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mexastarted.github.io/yanilog/">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://mexastarted.github.io/yanilog/og.png">
+<meta property="og:image:secure_url" content="https://mexastarted.github.io/yanilog/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ヤニログ｜喫煙記録・禁煙サポートアプリ">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ヤニログ｜煙に変えたお金を、見える化する">
+<meta name="twitter:description" content="喫煙記録・推移・節約、禁煙／減煙サポートをひとつに。端末内保存・買い切り。">
+<meta name="twitter:image" content="https://mexastarted.github.io/yanilog/og.png">
+<meta name="twitter:image:alt" content="ヤニログ｜喫煙記録・禁煙サポートアプリ">
+<meta name="twitter:site" content="@mexastated">
+<meta name="twitter:creator" content="@mexastated">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Chakra+Petch:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0a09; --bg2:#13100c; --panel:#1a160f; --panel2:#221c14;
+  --line:#2a2218; --line2:#3a2f20;
+  --ember:#ff6a2b; --ember2:#ff9d5c; --ember-deep:#c44216;
+  --mint:#5bd6a6; --mint2:#8ce8c6; --mint-deep:#2f9c74;
+  --smoke:#ece7dd; --ash:#b9b0a1; --ash2:#8f8676;
+  --maxw:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--smoke);font-family:'Zen Kaku Gothic New',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(60% 40% at 80% -5%,rgba(255,106,43,.16),transparent 60%),
+  radial-gradient(50% 35% at 5% 8%,rgba(255,106,43,.08),transparent 60%),
+  radial-gradient(60% 50% at 50% 110%,rgba(91,214,166,.07),transparent 60%),
+  var(--bg)}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:2px solid var(--ember);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.eyebrow{font-family:'Chakra Petch',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ember2)}
+.num{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.01em;line-height:.9}
+
+/* header */
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgba(11,10,9,.66);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:19px;letter-spacing:.01em}
+.tip{width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffd9a0,var(--ember) 55%,var(--ember-deep));box-shadow:0 0 14px rgba(255,106,43,.85);position:relative;top:-1px}
+.logo small{font-family:'Chakra Petch';font-size:10px;color:var(--ash2);letter-spacing:.12em;font-weight:400}
+.nav-cta{font-weight:800;font-size:13px;color:#1a140e;background:linear-gradient(180deg,var(--ember2),var(--ember));padding:10px 16px;border-radius:999px;text-decoration:none;white-space:nowrap}
+.nav-cta:active{transform:scale(.97)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:72px 0 64px}
+.hero h1{font-weight:900;font-size:clamp(34px,5.4vw,60px);line-height:1.18;letter-spacing:.005em;margin:18px 0 0}
+.hero h1 .hl{color:var(--ember2);position:relative;white-space:nowrap}
+.hero h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.10em;background:linear-gradient(90deg,var(--ember),transparent)}
+.lead{font-size:clamp(15px,1.7vw,17px);color:var(--ash);margin-top:20px;max-width:30em}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:800;border-radius:14px;transition:transform .08s}
+.btn:active{transform:translateY(1px) scale(.99)}
+.btn-primary{font-size:16px;color:#1a140e;background:linear-gradient(180deg,var(--ember2),var(--ember));padding:16px 26px;box-shadow:0 18px 40px -16px rgba(255,106,43,.75)}
+.btn-primary .free{font-family:'Chakra Petch';font-weight:700;font-size:11px;background:rgba(0,0,0,.18);padding:3px 8px;border-radius:999px}
+.btn-link{font-weight:700;font-size:14px;color:var(--ash);text-decoration:none;border-bottom:1px solid var(--line2);padding-bottom:3px}
+.btn-link:hover{color:var(--smoke);border-color:var(--ember)}
+.micro{margin-top:16px;font-family:'Chakra Petch';font-size:11.5px;color:var(--ash2);letter-spacing:.02em}
+.micro b{color:var(--mint2)}
+
+/* phone mockup */
+.phone-wrap{display:flex;justify-content:center;perspective:1400px}
+.phone{width:300px;border-radius:42px;background:linear-gradient(160deg,#26201a,#100d0a);padding:11px;box-shadow:0 50px 90px -40px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.04);transform:rotateY(-12deg) rotateX(4deg);transform-style:preserve-3d}
+.scr{border-radius:32px;background:var(--bg);overflow:hidden;position:relative}
+.scr-top{height:26px;display:flex;align-items:center;justify-content:center}
+.scr-top i{width:54px;height:5px;border-radius:5px;background:#0a0907}
+.scr-pad{padding:6px 16px 0}
+.m-hd{display:flex;align-items:center;gap:8px;font-weight:900;font-size:15px;padding:4px 0 10px}
+.m-hd small{font-family:'Chakra Petch';font-size:8px;color:var(--ash2);letter-spacing:.1em;font-weight:400}
+.m-eye{font-family:'Chakra Petch';font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ash2)}
+.m-spent{display:flex;align-items:baseline;gap:4px;margin-top:3px}
+.m-spent .y{font-family:'Anton';font-size:22px;color:var(--ember2)}
+.m-spent .big{font-family:'Anton';font-size:46px;color:#fff;letter-spacing:.01em}
+.m-pills{display:flex;gap:6px;margin-top:11px;flex-wrap:wrap}
+.m-pill{font-family:'Chakra Petch';font-size:9px;color:var(--ash);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:5px 9px}
+.m-pill b{color:var(--smoke);font-size:11px}
+.m-quit{margin-top:13px;border-radius:16px;padding:13px;background:linear-gradient(165deg,rgba(91,214,166,.1),rgba(91,214,166,.02));border:1px solid rgba(91,214,166,.28);position:relative;overflow:hidden}
+.m-quit .band{position:absolute;left:0;top:0;width:3px;height:100%;background:linear-gradient(var(--mint2),var(--mint-deep))}
+.m-qeye{font-family:'Chakra Petch';font-size:9px;color:var(--mint2);letter-spacing:.08em;display:flex;align-items:center;gap:6px}
+.m-qeye .lf{width:6px;height:6px;border-radius:50%;background:var(--mint);box-shadow:0 0 8px var(--mint)}
+.m-qtime{display:flex;align-items:baseline;gap:5px;margin:6px 0 2px}
+.m-qtime .d{font-family:'Anton';font-size:38px;color:#fff}
+.m-qtime .du{font-size:11px;color:var(--ash)}
+.m-qtime .hm{font-family:'Chakra Petch';font-size:10px;color:var(--ash2);margin-left:auto}
+.m-qrow{display:flex;gap:8px;margin-top:8px}
+.m-qs{flex:1;background:rgba(0,0,0,.22);border-radius:10px;padding:7px 9px}
+.m-qs .k{font-size:8px;color:var(--ash2)}
+.m-qs .v{font-family:'Chakra Petch';font-weight:700;font-size:14px;color:var(--mint2);margin-top:1px}
+.m-plant{display:flex;align-items:center;gap:9px;margin-top:10px;padding:7px 10px;border-radius:11px;background:rgba(91,214,166,.06);border:1px solid rgba(91,214,166,.18)}
+.m-plant .pt .a{font-size:8px;color:var(--mint2);font-weight:700}
+.m-plant .pt .b{font-family:'Chakra Petch';font-weight:700;font-size:13px;color:var(--mint)}
+.m-nav{display:flex;justify-content:space-around;align-items:center;margin-top:14px;border-top:1px solid var(--line);padding:9px 0 11px}
+.m-nav span{display:flex;flex-direction:column;align-items:center;gap:3px;font-family:'Chakra Petch';font-size:8px;color:var(--ash2)}
+.m-nav span.on{color:var(--ember2)}
+.m-nav span i{width:17px;height:17px;border-radius:5px;background:currentColor;opacity:.85;-webkit-mask-size:contain}
+.glowline{height:1px;background:linear-gradient(90deg,transparent,var(--ember),transparent);opacity:.5;margin:0 auto;max-width:var(--maxw)}
+
+/* trust strip */
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(0,0,0,.2)}
+.strip .wrap{display:flex;flex-wrap:wrap;gap:10px 30px;justify-content:center;padding:16px 22px}
+.strip span{font-family:'Chakra Petch';font-size:12px;color:var(--ash2);letter-spacing:.03em;display:flex;align-items:center;gap:8px}
+.strip span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ember);box-shadow:0 0 8px var(--ember)}
+
+/* generic section */
+section.blk{padding:74px 0}
+.kicker{font-family:'Chakra Petch';font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ember2);margin-bottom:14px}
+.h2{font-weight:900;font-size:clamp(26px,3.6vw,40px);line-height:1.28;letter-spacing:.01em}
+.sub{color:var(--ash);font-size:16px;margin-top:14px;max-width:34em}
+
+/* money band */
+.money{text-align:center;background:
+  radial-gradient(60% 80% at 50% 0%,rgba(255,106,43,.12),transparent 60%);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.money .lbl{font-family:'Chakra Petch';font-size:13px;letter-spacing:.06em;color:var(--ash)}
+.money .figure{font-family:'Anton';font-size:clamp(64px,14vw,150px);color:#fff;line-height:.92;margin:10px 0;text-shadow:0 0 60px rgba(255,106,43,.28)}
+.money .figure .yy{color:var(--ember2);font-size:.55em;vertical-align:.06em}
+.money .cap{color:var(--ash2);font-size:13px}
+.money .row2{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:26px}
+.money .chip{font-family:'Chakra Petch';font-size:13px;color:var(--ash);background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 16px}
+.money .chip b{color:var(--ember2);font-size:17px}
+
+/* features */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.card{background:linear-gradient(170deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:18px;padding:24px 22px;position:relative;overflow:hidden;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--line2);transform:translateY(-3px)}
+.card .ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;font-size:23px;background:rgba(255,106,43,.1);border:1px solid rgba(255,106,43,.24);margin-bottom:16px}
+.card.mint .ic{background:rgba(91,214,166,.1);border-color:rgba(91,214,166,.26)}
+.card h3{font-size:18px;font-weight:800;letter-spacing:.01em}
+.card p{color:var(--ash);font-size:13.5px;margin-top:9px;line-height:1.7}
+
+/* split highlight (counterfactual) */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+.cfbox{background:linear-gradient(170deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:20px;padding:22px}
+.cf-top{display:flex;justify-content:space-between;font-family:'Chakra Petch';font-size:10px;color:var(--ash2);margin-bottom:6px}
+.cf-leg{display:flex;gap:18px;margin-top:12px;font-size:12px;font-weight:700}
+.cf-leg .a{color:var(--ember2)} .cf-leg .b{color:var(--mint2)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}
+.step{position:relative;padding:26px 22px;border:1px solid var(--line);border-radius:18px;background:rgba(0,0,0,.16)}
+.step .no{font-family:'Anton';font-size:40px;color:rgba(255,106,43,.32);line-height:1}
+.step h4{font-size:17px;font-weight:800;margin-top:8px}
+.step p{color:var(--ash);font-size:13.5px;margin-top:8px;line-height:1.7}
+
+/* pricing */
+.price-wrap{display:flex;justify-content:center;margin-top:42px}
+.price{width:100%;max-width:440px;background:linear-gradient(170deg,var(--panel2),var(--bg2));border:1px solid var(--line2);border-radius:24px;padding:34px 30px;text-align:center;position:relative;overflow:hidden}
+.price::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 50% at 50% 0,rgba(255,106,43,.14),transparent 60%);pointer-events:none}
+.price .tag{display:inline-block;font-family:'Chakra Petch';font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mint2);border:1px solid rgba(91,214,166,.4);border-radius:999px;padding:6px 13px}
+.price .pmain{font-weight:900;font-size:30px;margin:18px 0 4px}
+.price .psub{color:var(--ash);font-size:14px}
+.price ul{list-style:none;text-align:left;margin:24px auto 0;max-width:300px;display:grid;gap:11px}
+.price li{position:relative;padding-left:28px;font-size:14px;color:var(--smoke)}
+.price li::before{content:"✓";position:absolute;left:0;top:0;color:var(--mint2);font-weight:800}
+.price .btn{margin-top:26px;width:100%;justify-content:center}
+.price .fine{margin-top:14px;font-size:11px;color:var(--ash2);line-height:1.6}
+.price .fine a{color:var(--ash)}
+
+/* safety */
+.safe{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}
+.safe div{border:1px solid var(--line);border-radius:16px;padding:22px;background:rgba(0,0,0,.16)}
+.safe h4{font-size:15px;font-weight:800;display:flex;align-items:center;gap:9px}
+.safe p{color:var(--ash);font-size:13px;margin-top:9px;line-height:1.7}
+
+/* final */
+.final{text-align:center;background:radial-gradient(60% 80% at 50% 120%,rgba(255,106,43,.16),transparent 60%);border-top:1px solid var(--line)}
+.final .h2{margin-bottom:14px}
+.final .cta-row{justify-content:center}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:38px 0 54px;color:var(--ash2)}
+.foot{display:flex;flex-wrap:wrap;gap:18px 26px;align-items:center;justify-content:space-between}
+.foot .links{display:flex;flex-wrap:wrap;gap:18px}
+.foot a{font-size:12.5px;color:var(--ash);text-decoration:none}
+.foot a:hover{color:var(--smoke)}
+.foot .cc{font-family:'Chakra Petch';font-size:11px;letter-spacing:.04em}
+.disclaim{margin-top:22px;font-size:11px;color:var(--ash2);line-height:1.7;max-width:60em}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;gap:40px;padding:48px 0 52px}
+  .phone-wrap{order:-1}
+  .phone{transform:none;width:270px}
+  .split{grid-template-columns:1fr;gap:30px}
+  .grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+  .safe{grid-template-columns:1fr}
+  section.blk{padding:56px 0}
+}
+@media(max-width:520px){
+  .grid{grid-template-columns:1fr}
+  .cta-row{gap:14px}
+  .btn-primary{width:100%;justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .phone{transform:none}
+}
+/* FAQ */
+.faq-list{margin-top:26px;display:flex;flex-direction:column;gap:12px;max-width:780px;margin-left:auto;margin-right:auto}
+.faq-item{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:border-color .2s}
+.faq-item[open]{border-color:var(--line2)}
+.faq-q{list-style:none;cursor:pointer;padding:18px 54px 18px 20px;font-weight:700;font-size:16px;color:var(--smoke);position:relative;display:flex;align-items:flex-start;gap:11px}
+.faq-q::-webkit-details-marker{display:none}
+.faq-q::after{content:"+";position:absolute;right:20px;top:16px;font-family:'Chakra Petch',monospace;font-size:22px;color:var(--ember2);transition:transform .2s}
+.faq-item[open] .faq-q::after{content:"−"}
+.faq-q .qmark{font-family:'Chakra Petch',monospace;font-weight:700;font-size:15px;color:var(--ember2);flex:none;line-height:1.6}
+.faq-a{padding:0 20px 18px;color:var(--ash);font-size:14.5px;line-height:1.85}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://mexastarted.github.io/yanilog/#website",
+      "name": "ヤニログ",
+      "alternateName": "yani-log",
+      "url": "https://mexastarted.github.io/yanilog/",
+      "description": "吸った本数とタバコ代を記録して、推移・節約・禁煙・減煙までをひとつにした喫煙記録アプリ。",
+      "inLanguage": "ja",
+      "publisher": { "@id": "https://mexastarted.github.io/yanilog/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://mexastarted.github.io/yanilog/#org",
+      "name": "ヤニログ",
+      "url": "https://mexastarted.github.io/yanilog/",
+      "logo": "https://mexastarted.github.io/yanilog/icon.png",
+      "sameAs": [
+        "https://x.com/mexastated",
+        "https://kaihatusha0001.gumroad.com/l/hddvho"
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://mexastarted.github.io/yanilog/#app",
+      "name": "ヤニログ",
+      "alternateName": "yani-log",
+      "url": "https://mexastarted.github.io/yanilog/yanilog.html",
+      "description": "吸った本数とタバコ代を記録し、推移グラフ・節約額の可視化・減煙プラン・禁煙経過/離脱症状トラッカーまでをひとつにした喫煙記録＆禁煙サポートアプリ。アカウント不要、データは端末内のみ。",
+      "inLanguage": "ja",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web（iOS / Android / PC のブラウザ）",
+      "browserRequirements": "Requires JavaScript.",
+      "image": "https://mexastarted.github.io/yanilog/og.png",
+      "screenshot": "https://mexastarted.github.io/yanilog/og.png",
+      "softwareVersion": "1.0",
+      "datePublished": "2026-06-21",
+      "featureList": [
+        "1本ごと/箱ごとの本数・金額記録",
+        "推移グラフと時間帯ヒートマップ",
+        "節約額・生涯コストの可視化",
+        "段階的な減煙プラン",
+        "禁煙経過タイマーと実績バッジ",
+        "離脱症状トラッカー",
+        "呼吸法ガイドと代替アクション"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "JPY",
+        "url": "https://kaihatusha0001.gumroad.com/l/hddvho",
+        "availability": "https://schema.org/InStock",
+        "category": "買い切り（2日間無料トライアル付き）"
+      },
+      "author": { "@id": "https://mexastarted.github.io/yanilog/#org" },
+      "publisher": { "@id": "https://mexastarted.github.io/yanilog/#org" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mexastarted.github.io/yanilog/#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "ヤニログは無料ですか？月額はかかりますか？", "acceptedAnswer": { "@type": "Answer", "text": "最初の2日間は無料で全機能を試せます。その後は買い切り（一度の購入のみ）で、月額・サブスクはありません。" } },
+        { "@type": "Question", "name": "記録したデータはどこに保存されますか？", "acceptedAnswer": { "@type": "Answer", "text": "すべてお使いの端末内（ブラウザ）にのみ保存されます。サーバーへ送信されず、アカウント登録も不要です。" } },
+        { "@type": "Question", "name": "禁煙アプリですか？それとも喫煙記録アプリですか？", "acceptedAnswer": { "@type": "Answer", "text": "両方です。本数とタバコ代の記録・節約額の可視化に加え、段階的な減煙プラン、禁煙経過タイマー、離脱症状トラッカーなどのサポート機能があります。" } },
+        { "@type": "Question", "name": "iPhoneとAndroidのどちらで使えますか？", "acceptedAnswer": { "@type": "Answer", "text": "ブラウザで動くWebアプリで、iPhone・Android・PCで使えます。ホーム画面に追加すれば、アプリのように全画面で起動できます。" } },
+        { "@type": "Question", "name": "アプリストアからインストールが必要ですか？", "acceptedAnswer": { "@type": "Answer", "text": "いいえ。URLを開くだけで使えます。ホーム画面に追加するとアイコンから起動でき、ストア審査やインストールは不要です。" } },
+        { "@type": "Question", "name": "購入後はどうやって全機能が使えるようになりますか？", "acceptedAnswer": { "@type": "Answer", "text": "購入時に発行されるライセンスキーを、アプリの設定→ライセンスに入力すると全機能が解放されます。" } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <div class="logo"><span class="tip"></span>ヤニログ<small>yani-log</small></div>
+    <a class="nav-cta" href="https://mexastarted.github.io/yanilog/yanilog.html">2日間 無料ではじめる</a>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Smoking Log ・ 買い切り型アプリ</div>
+      <h1>煙に変えたお金を、<br><span class="hl">ちゃんと見る。</span></h1>
+      <p class="lead">吸った本数と金額を記録するだけ。推移・分析・節約、そして禁煙・減煙のサポートまでをひとつに。アカウント不要、データは端末の中だけ。</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://mexastarted.github.io/yanilog/yanilog.html">はじめる <span class="free">2日間無料</span></a>
+        <a class="btn-link" href="https://kaihatusha0001.gumroad.com/l/hddvho">購入ページを見る →</a>
+      </div>
+      <div class="micro">月額なし・<b>買い切り</b>　／　成人喫煙者向け　／　記録は外部に送信されません</div>
+    </div>
+
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="scr">
+          <div class="scr-top"><i></i></div>
+          <div class="scr-pad">
+            <div class="m-hd"><span class="tip"></span>ヤニログ<small>yani-log</small></div>
+            <div class="m-eye">これまでの代償</div>
+            <div class="m-spent"><span class="y">¥</span><span class="big">186,420</span></div>
+            <div class="m-pills"><span class="m-pill">累計 <b>3,720</b>本</span><span class="m-pill">箱 <b>186</b></span><span class="m-pill">期間 <b>7ヶ月</b></span></div>
+
+            <div class="m-quit">
+              <div class="band"></div>
+              <div class="m-qeye"><span class="lf"></span>禁煙チャレンジ 継続中</div>
+              <div class="m-qtime"><span class="d">12</span><span class="du">日</span><span class="hm">6時間 21分</span></div>
+              <div class="m-qrow">
+                <div class="m-qs"><div class="k">取り戻したお金</div><div class="v">¥7,200</div></div>
+                <div class="m-qs"><div class="k">吸わなかった本数</div><div class="v">240本</div></div>
+              </div>
+              <div class="m-plant">
+                <svg viewBox="0 0 80 92" width="40" height="46" aria-hidden="true">
+                  <ellipse cx="40" cy="86" rx="20" ry="3.5" fill="rgba(91,214,166,.12)"/>
+                  <path d="M40 84 V40" stroke="#2f9c74" stroke-width="3.4" stroke-linecap="round"/>
+                  <ellipse cx="51" cy="74" rx="11" ry="5.5" fill="#5bd6a6" opacity=".6" transform="rotate(28 51 74)"/>
+                  <ellipse cx="29" cy="62" rx="11" ry="5.5" fill="#5bd6a6" opacity=".7" transform="rotate(-28 29 62)"/>
+                  <ellipse cx="51" cy="52" rx="11" ry="5.5" fill="#5bd6a6" opacity=".8" transform="rotate(28 51 52)"/>
+                  <circle cx="40" cy="38" r="6.5" fill="#8ce8c6"/><circle cx="40" cy="38" r="2.6" fill="#ff9d5c"/>
+                </svg>
+                <div class="pt"><div class="a">あなたの回復</div><div class="b">ぐんぐん伸びる</div></div>
+              </div>
+            </div>
+
+            <div class="m-nav">
+              <span class="on"><i></i>ホーム</span><span><i></i>推移</span><span><i></i>影響</span><span><i></i>設定</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="glowline"></div>
+
+<!-- TRUST STRIP -->
+<div class="strip"><div class="wrap">
+  <span>記録は端末内のみ</span>
+  <span>アカウント不要</span>
+  <span>月額なし・買い切り</span>
+  <span>2日間 無料体験</span>
+</div></div>
+
+<!-- PROBLEM -->
+<section class="blk"><div class="wrap reveal">
+  <div class="kicker">なぜ、見える化なのか</div>
+  <h2 class="h2">「なんとなく」が、<br>いちばん高くつく。</h2>
+  <p class="sub">一本ずつは数十円。だから財布は痛まない。けれど積み重なると、年に何万円、何十万円。見えないコストは減らしようがありません。まず「いくら煙に変えているか」を、はっきり見るところから。</p>
+</div></section>
+
+<!-- MONEY BAND -->
+<section class="blk money"><div class="wrap reveal">
+  <div class="lbl">1日1箱（約580円）を、1年続けると</div>
+  <div class="figure"><span class="yy">¥</span>211,700</div>
+  <div class="cap">＝ そのぶんの煙。（価格580円/箱で試算した目安）</div>
+  <div class="row2">
+    <span class="chip">5年で <b>約106万円</b></span>
+    <span class="chip">10年で <b>約212万円</b></span>
+    <span class="chip">1日 <b>約580円</b> ＝ ランチ1食</span>
+  </div>
+</div></section>
+
+<!-- FEATURES -->
+<section class="blk"><div class="wrap">
+  <div class="reveal">
+    <div class="kicker">できること</div>
+    <h2 class="h2">記録して、見える化して、減らす。</h2>
+  </div>
+  <div class="grid">
+    <div class="card reveal">
+      <div class="ic">🚬</div>
+      <h3>かんたん記録</h3>
+      <p>銘柄をタップで1箱記録。1本ずつの記録もでき、きっかけ・場所・気分・時間まで残せます。あとから過去日の補完も可能。</p>
+    </div>
+    <div class="card reveal">
+      <div class="ic">📊</div>
+      <h3>推移と分析</h3>
+      <p>月別グラフ、よく吸う時間帯のヒートマップ、きっかけの内訳、今週・今月の増減（先週比/先月比）まで一目で。</p>
+    </div>
+    <div class="card reveal">
+      <div class="ic">📈</div>
+      <h3>続けた場合 vs やめた場合</h3>
+      <p>このまま1年吸い続けた場合と、今やめた場合の差額をグラフで可視化。やめれば残るお金が、はっきり見えます。</p>
+    </div>
+    <div class="card mint reveal">
+      <div class="ic">🌱</div>
+      <h3>禁煙・減煙サポート</h3>
+      <p>段階的な減煙プラン、4-7-8の呼吸ガイド、離脱症状トラッカー、そして自分を責めない復帰フロー。やめ続けを支えます。</p>
+    </div>
+    <div class="card mint reveal">
+      <div class="ic">🎉</div>
+      <h3>育って、祝う</h3>
+      <p>続けた日数で育つ植物、節目の紙吹雪、実績バッジと自己ベスト。小さな前進を、ちゃんと見える形に。</p>
+    </div>
+    <div class="card reveal">
+      <div class="ic">🔒</div>
+      <h3>プライバシー第一</h3>
+      <p>記録はすべて端末内に保存。アカウント登録なし、外部送信なし。あなたの記録は、あなたの手元だけにあります。</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- SPLIT / counterfactual -->
+<section class="blk"><div class="wrap split">
+  <div class="reveal">
+    <div class="kicker">未来を、先に見る</div>
+    <h2 class="h2">分かれていく、<br>2つの1年。</h2>
+    <p class="sub">同じ「今」から、続ける未来とやめる未来は、どんどん離れていきます。アプリはその差額をリアルタイムで計算。数字ではなく“伸びていく線”で見ると、判断はぐっと具体的になります。</p>
+  </div>
+  <div class="cfbox reveal">
+    <div class="cf-top"><span>今</span><span>1年後</span></div>
+    <svg viewBox="0 0 320 160" width="100%" style="height:auto;display:block" aria-hidden="true">
+      <path d="M8 132 L150 120 L300 14 L300 120 Z" fill="rgba(255,106,43,.12)"/>
+      <path d="M8 132 L70 128 L120 121 L150 120 L8 138 Z" fill="rgba(255,106,43,.10)"/>
+      <path d="M8 132 L70 128 L120 121 L150 120" fill="none" stroke="#ff9d5c" stroke-width="2.4"/>
+      <line x1="150" y1="12" x2="150" y2="138" stroke="rgba(255,255,255,.15)" stroke-dasharray="3 3"/>
+      <path d="M150 120 L300 14" fill="none" stroke="#ff6a2b" stroke-width="2.4" stroke-dasharray="5 4"/>
+      <path d="M150 120 L300 120" fill="none" stroke="#8ce8c6" stroke-width="2.6" stroke-dasharray="5 4"/>
+    </svg>
+    <div class="cf-leg"><span class="a">― このまま続けた場合</span><span class="b">― 今やめた場合</span></div>
+  </div>
+</div></section>
+
+<!-- HOW -->
+<section class="blk"><div class="wrap">
+  <div class="reveal">
+    <div class="kicker">使い方は3ステップ</div>
+    <h2 class="h2">むずかしい設定は、いりません。</h2>
+  </div>
+  <div class="steps">
+    <div class="step reveal"><div class="no">01</div><h4>記録する</h4><p>いつもの銘柄と値段を登録したら、あとは吸ったときにタップするだけ。1本ずつでも、まとめてでも。</p></div>
+    <div class="step reveal"><div class="no">02</div><h4>見える化する</h4><p>累計の金額と本数、推移、時間帯、増減が自動でグラフに。何が・いつ・いくらかが、一目で分かります。</p></div>
+    <div class="step reveal"><div class="no">03</div><h4>減らす／やめる</h4><p>減煙プランや禁煙チャレンジで、ペースを作る。つらい時は呼吸ガイドや代替アクションがそばに。</p></div>
+  </div>
+</div></section>
+
+<!-- PRICING -->
+<section class="blk"><div class="wrap">
+  <div class="reveal" style="text-align:center">
+    <div class="kicker">料金</div>
+    <h2 class="h2">2日ためして、気に入ったら買い切り。</h2>
+    <p class="sub" style="margin-left:auto;margin-right:auto;text-align:center">サブスクではありません。一度の購入で、ずっと使えます。解約を気にする必要もありません。</p>
+  </div>
+  <div class="price-wrap"><div class="price reveal">
+    <span class="tag">One-time ・ 買い切り</span>
+    <div class="pmain">まず2日間、無料</div>
+    <div class="psub">3日目以降も使うなら、買い切りで解放</div>
+    <ul>
+      <li>月額・年額なし。追加課金なし</li>
+      <li>購入後に届くライセンスキーで解放</li>
+      <li>記録は端末内に保存（外部送信なし）</li>
+      <li>すべての機能をそのまま利用可</li>
+    </ul>
+    <a class="btn btn-primary" href="https://mexastarted.github.io/yanilog/yanilog.html">2日間 無料ではじめる</a>
+    <div class="fine">価格・購入・返金は <a href="https://kaihatusha0001.gumroad.com/l/hddvho">購入ページ（Gumroad）</a> の表記に準じます。</div>
+  </div></div>
+</div></section>
+
+<!-- SAFETY -->
+<section class="blk"><div class="wrap">
+  <div class="reveal">
+    <div class="kicker">安心して使うために</div>
+    <h2 class="h2">正直に、お伝えします。</h2>
+  </div>
+  <div class="safe">
+    <div class="reveal"><h4>🔒 データは端末内だけ</h4><p>記録はこの端末・ブラウザの中にのみ保存され、外部に送信されません。機種変更の前には、書き出し機能でのバックアップをおすすめします。</p></div>
+    <div class="reveal"><h4>🩺 医療ではありません</h4><p>健康情報や禁煙の経過は一般的な参考であり、医学的な助言や診断ではありません。効果には個人差があります。気になる症状は医療機関へ。</p></div>
+    <div class="reveal"><h4>🔞 成人の喫煙者向け</h4><p>本アプリは喫煙の記録・節約・禁煙支援を目的としたツールで、喫煙を勧めるものではありません。金額や予測は入力に基づく概算です。</p></div>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section class="blk" aria-labelledby="faq-title"><div class="wrap reveal">
+  <div class="kicker" style="text-align:center">FAQ</div>
+  <h2 class="h2" id="faq-title" style="text-align:center">よくある質問</h2>
+  <div class="faq-list">
+    <details class="faq-item"><summary class="faq-q"><span class="qmark">Q</span>ヤニログは無料ですか？月額はかかりますか？</summary><div class="faq-a">最初の2日間は無料で全機能を試せます。その後は買い切り（一度の購入のみ）で、月額・サブスクはありません。</div></details>
+    <details class="faq-item"><summary class="faq-q"><span class="qmark">Q</span>記録したデータはどこに保存されますか？</summary><div class="faq-a">すべてお使いの端末内（ブラウザ）にのみ保存されます。サーバーへ送信されず、アカウント登録も不要です。</div></details>
+    <details class="faq-item"><summary class="faq-q"><span class="qmark">Q</span>禁煙アプリですか？それとも喫煙記録アプリですか？</summary><div class="faq-a">両方です。本数とタバコ代の記録・節約額の可視化に加え、段階的な減煙プラン、禁煙経過タイマー、離脱症状トラッカーなどのサポート機能があります。</div></details>
+    <details class="faq-item"><summary class="faq-q"><span class="qmark">Q</span>iPhoneとAndroidのどちらで使えますか？</summary><div class="faq-a">ブラウザで動くWebアプリで、iPhone・Android・PCで使えます。ホーム画面に追加すれば、アプリのように全画面で起動できます。</div></details>
+    <details class="faq-item"><summary class="faq-q"><span class="qmark">Q</span>アプリストアからインストールが必要ですか？</summary><div class="faq-a">いいえ。URLを開くだけで使えます。ホーム画面に追加するとアイコンから起動でき、ストア審査やインストールは不要です。</div></details>
+    <details class="faq-item"><summary class="faq-q"><span class="qmark">Q</span>購入後はどうやって全機能が使えるようになりますか？</summary><div class="faq-a">購入時に発行されるライセンスキーを、アプリの設定→ライセンスに入力すると全機能が解放されます。</div></details>
+  </div>
+</div></section>
+
+<!-- FINAL CTA -->
+<section class="blk final"><div class="wrap reveal">
+  <div class="kicker" style="text-align:center">はじめよう</div>
+  <h2 class="h2">その一箱の前に、<br>数字を見てみませんか。</h2>
+  <p class="sub" style="margin:0 auto 28px;text-align:center">登録なしで、今すぐ。まずは2日間、無料で。</p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="https://mexastarted.github.io/yanilog/yanilog.html">ヤニログをひらく <span class="free">2日間無料</span></a>
+    <a class="btn-link" href="https://kaihatusha0001.gumroad.com/l/hddvho">購入ページ →</a>
+  </div>
+</div></section>
+
+</main>
+
+<footer><div class="wrap">
+  <div class="foot">
+    <div class="logo"><span class="tip"></span>ヤニログ<small>yani-log</small></div>
+    <div class="links">
+      <a href="https://mexastarted.github.io/yanilog/yanilog.html">アプリを開く</a>
+      <a href="https://kaihatusha0001.gumroad.com/l/hddvho">購入ページ</a>
+      <a href="https://kaihatusha0001.gumroad.com/l/hddvho">特定商取引法に基づく表記</a>
+      <a href="https://x.com/mexastated" target="_blank" rel="noopener">お問い合わせ（X）</a>
+    </div>
+    <div class="cc">© 2026 ヤニログ</div>
+  </div>
+  <p class="disclaim">※ ヤニログは喫煙の記録・節約・禁煙/減煙の支援を目的としたツールであり、喫煙を推奨するものではありません。表示される金額・本数・将来予測はユーザーの入力に基づく概算で、正確性や将来の提供・全端末での動作を保証するものではありません。健康に関する記載は一般的な情報であり、医学的な助言・診断ではありません。記録データは利用者の端末内にのみ保存され、外部サーバーへ送信されません。</p>
+</div></footer>
+
+<script>
+(function(){
+  var io;
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});
+  }
+})();
+</script>
+</body>
+</html>
