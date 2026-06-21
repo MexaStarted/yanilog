@@ -1385,10 +1385,10 @@ function renderLifeCost(s){
 
 /* ===== monetization: 2-day free trial + one-time unlock (Gumroad license) ===== */
 var TRIAL_MS=2*86400000;
-var GUMROAD_PRODUCT_ID='【ここにGumroadのproduct_idを入れる】';
-var GUMROAD_BUY_URL='【ここにGumroadの購入リンクを入れる】';
+var GUMROAD_PRODUCT_ID='r8Jy6OHEJMIHzONvWh8RaQ==';
+var GUMROAD_BUY_URL='https://kaihatusha0001.gumroad.com/l/hddvho?wanted=true';
 /* ブラウザのCORSで弾かれる場合は、ここを自前の中継(例: Cloudflare Worker)のURLに差し替える */
-var GUMROAD_VERIFY_URL='https://api.gumroad.com/v2/licenses/verify';
+var GUMROAD_VERIFY_URL='https://apex-proxy.clasickout06.workers.dev/?type=gumroad';
 
 function ensureInstall(){if(!DB.install){DB.install=Date.now();save();}}
 function trialLeftMs(){return Math.max(0,(DB.install||Date.now())+TRIAL_MS-Date.now());}
